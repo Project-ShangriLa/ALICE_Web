@@ -3,6 +3,7 @@ require 'sequel'
 require 'optparse'
 require 'uri'
 require 'pry'
+require 'date'
 
 amazon_widget = <<EOS
   <script type="text/javascript"><!--
@@ -37,7 +38,7 @@ EOS
   table_end = '</tbody></table>'
 
   body_string = <<"EOS"
-<h1>Pixiv 今期アニメ タグ件数ランキング</h1>
+<h1>pixiv 今期アニメ タグ件数ランキング</h1>
 <div>
 制作:
   <a href="#" onclick="javascript:window.open('http://akibalab.info/');">
@@ -51,7 +52,7 @@ EOS
   @db = Sequel.mysql2('anime_admin_development', :host=>'localhost', :user=>'root', :password=>'', :port=>'3306')
 
   ranking = @db[:pixiv_tag_status].reverse(:total).select_all
-  daily_ranking = @db[:pixiv_tag_daily].select_hash(:bases_id, [:total, :search_word])
+  daily_ranking = @db[:pixiv_tag_daily].where(:get_date => Date.today).select_hash(:bases_id, [:total, :search_word])
 
   #http://www.pixiv.net/search.php?s_mode=s_tag&word=%E6%9A%97%E6%AE%BA%E6%95%99%E5%AE%A4(%E7%AC%AC2%E6%9C%9F)%20or%20%E6%9A%97%E6%AE%BA%E6%95%99%E5%AE%A4&abt=y
   ranking.each_with_index do |rank, i|
@@ -100,22 +101,22 @@ head = <<"EOS"
 <meta charset="utf-8">
 <meta name="format-detection" content="telephone=no">
 
-<meta content="Pixiv 今期アニメ タグ件数ランキング" name="title">
-<meta content="Pixiv 今期アニメ タグ件数ランキングです。毎日数回更新。制作：秋葉原IT戦略研究所" name="description">
-<meta content='Pixivランキング,アニメランキング,Pixiv タグランキング,アニメ' name='keywords'>
+<meta content="pixiv 今期アニメ タグ件数ランキング" name="title">
+<meta content="pixiv 今期アニメ タグ件数ランキングです。毎日数回更新。制作：秋葉原IT戦略研究所" name="description">
+<meta content='pixivランキング,アニメランキング,pixiv タグランキング,アニメ' name='keywords'>
 
 <meta property="og:type" content="website"/>
-<meta property="og:title" content="Pixiv 今期アニメ タグ件数ランキング"/>
-<meta property="og:description" content="Pixiv 今期アニメ タグ件数ランキングです。毎日数回更新。毎日数回更新。制作：秋葉原IT戦略研究所" />
-<meta property="og:image" content="http://data.akiba-net.com/va_og_image.png" />
-<meta property="og:url" content="http://data.akiba-net.com/va.html" />
-<meta property="og:site_name" content="Pixiv 今期アニメ タグ件数ランキング"/>
+<meta property="og:title" content="pixiv 今期アニメ タグ件数ランキング"/>
+<meta property="og:description" content="pixiv 今期アニメ タグ件数ランキングです。毎日数回更新。毎日数回更新。制作：秋葉原IT戦略研究所" />
+<meta property="og:image" content="http://pix.akiba-net.com/og_image.png" />
+<meta property="og:url" content="http://pix.akiba-net.com/index.html" />
+<meta property="og:site_name" content="pixiv 今期アニメ タグ件数ランキング"/>
 
 <meta name="twitter:card" content="summary" />
-<meta name="twitter:site" content="@428dev" />
-<meta name="twitter:title" content="Pixiv 今期アニメ タグ件数ランキング" />
-<meta name="twitter:description" content="Pixiv 今期アニメ タグ件数ランキングです。毎日数回更新。毎日数回更新。制作：秋葉原IT戦略研究所" />
-<meta name="twitter:image" content="http://data.akiba-net.com/va_og_image.png" />
+<meta name="twitter:site" content="@anime_follower" />
+<meta name="twitter:title" content="pixiv 今期アニメ タグ件数ランキング" />
+<meta name="twitter:description" content="pixiv 今期アニメ タグ件数ランキングです。毎日数回更新。毎日数回更新。制作：秋葉原IT戦略研究所" />
+<meta name="twitter:image" content="http://pix.akiba-net.com/og_image.png" />
 
 <head>
 <title>pixiv 今期アニメ タグ件数ランキング</title>
