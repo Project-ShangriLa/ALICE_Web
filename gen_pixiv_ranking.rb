@@ -61,7 +61,7 @@ EOS
     diff = '検索ワード変更によりデータなし'
 
     if daily_ranking[rank[:bases_id]][1] == rank[:search_word]
-     diff = daily_ranking[rank[:bases_id]][0] - rank[:total]
+     diff = rank[:total] - daily_ranking[rank[:bases_id]][0]
     end
 
     body_string += <<EOS
@@ -95,19 +95,19 @@ head = <<"EOS"
 
 <meta content="Pixiv 今期アニメ タグ件数ランキング" name="title">
 <meta content="Pixiv 今期アニメ タグ件数ランキングです。毎日数回更新。制作：秋葉原IT戦略研究所" name="description">
-<meta content='声優,フォロワー数ランキング,声優ランキング,Twitterランキング,アニメ' name='keywords'>
+<meta content='Pixivランキング,アニメランキング,Pixiv タグランキング,アニメ' name='keywords'>
 
 <meta property="og:type" content="website"/>
 <meta property="og:title" content="Pixiv 今期アニメ タグ件数ランキング"/>
-<meta property="og:description" content="声優 Twitterフォロワーランキングです。国内最大規模、700人以上の声優データを公開。毎日数回更新。制作：秋葉原IT戦略研究所" />
+<meta property="og:description" content="Pixiv 今期アニメ タグ件数ランキングです。毎日数回更新。毎日数回更新。制作：秋葉原IT戦略研究所" />
 <meta property="og:image" content="http://data.akiba-net.com/va_og_image.png" />
 <meta property="og:url" content="http://data.akiba-net.com/va.html" />
-<meta property="og:site_name" content="声優 Twitterフォロワーランキング"/>
+<meta property="og:site_name" content="Pixiv 今期アニメ タグ件数ランキング"/>
 
 <meta name="twitter:card" content="summary" />
 <meta name="twitter:site" content="@428dev" />
-<meta name="twitter:title" content="声優 Twitterフォロワーランキング" />
-<meta name="twitter:description" content="声優 Twitterフォロワーランキングです。国内最大規模、700人以上の声優データを公開。毎日数回更新。制作：秋葉原IT戦略研究所" />
+<meta name="twitter:title" content="Pixiv 今期アニメ タグ件数ランキング" />
+<meta name="twitter:description" content="Pixiv 今期アニメ タグ件数ランキングです。毎日数回更新。毎日数回更新。制作：秋葉原IT戦略研究所" />
 <meta name="twitter:image" content="http://data.akiba-net.com/va_og_image.png" />
 
 <head>
