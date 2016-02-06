@@ -64,10 +64,17 @@ EOS
      diff = rank[:total] - daily_ranking[rank[:bases_id]][0]
     end
 
+    image = ''
+    image_base = './image/twitter_icon_' + rank[:bases_id].to_s
+    image = image_base + '.jpg' if File.exist? './html/image/twitter_icon_' + rank[:bases_id].to_s + '.jpg'
+    image = image_base + '.jpeg' if File.exist? './html/image/twitter_icon_' + rank[:bases_id].to_s + '.jpeg'
+    image = image_base + '.png' if File.exist? './html/image/twitter_icon_' + rank[:bases_id].to_s + '.png'
+
+
     body_string += <<EOS
     <tr>
      <th class="col-md-1"><p class="lead">#{i + 1}</p></th>
-     <td class="col-md-2">#{rank[:image]}</td>
+     <td class="col-md-2"><img data-layzr="#{image}"></td>
      <td class="col-md-2"><p class="lead">#{rank[:total]}</p></td>
      <td class="col-md-2"><p class="lead">#{diff}</p></td>
      <td class="col-md-5"><p class="lead"><a href="#" onclick="javascript:window.open('#{link}');">#{rank[:search_word]}</a></p></td>
