@@ -2,6 +2,7 @@
 require 'sequel'
 require 'optparse'
 require 'uri'
+require 'pry'
 
 amazon_widget = <<EOS
   <script type="text/javascript"><!--
@@ -50,8 +51,8 @@ EOS
   @db = Sequel.mysql2('anime_admin_development', :host=>'localhost', :user=>'root', :password=>'', :port=>'3306')
 
   ranking = @db[:pixiv_tag_status].reverse(:total).select_all
-  daily_ranking = @db[:pixiv_tag_daily].select_hash(:bases_id, :total)
-  
+  daily_ranking = @db[:pixiv_tag_daily].select_hash(:bases_id, [:total, :search_word])
+
   #http://www.pixiv.net/search.php?s_mode=s_tag&word=%E6%9A%97%E6%AE%BA%E6%95%99%E5%AE%A4(%E7%AC%AC2%E6%9C%9F)%20or%20%E6%9A%97%E6%AE%BA%E6%95%99%E5%AE%A4&abt=y
   ranking.each_with_index do |rank, i|
 
@@ -59,12 +60,16 @@ EOS
 
     diff = '検索ワード変更によりデータなし'
 
+    if daily_ranking[rank[:bases_id]][1] == rank[:search_word]
+     diff = daily_ranking[rank[:bases_id]][0] - rank[:total]
+    end
+
     body_string += <<EOS
     <tr>
      <th class="col-md-1"><p class="lead">#{i + 1}</p></th>
      <td class="col-md-2">#{rank[:image]}</td>
      <td class="col-md-2"><p class="lead">#{rank[:total]}</p></td>
-     <td class="col-md-2"><p class="lead">#{daily_ranking[rank[:bases_id]] - rank[:total] }</p></td>
+     <td class="col-md-2"><p class="lead">#{diff}</p></td>
      <td class="col-md-5"><p class="lead"><a href="#" onclick="javascript:window.open('#{link}');">#{rank[:search_word]}</a></p></td>
     </tr>
 EOS
