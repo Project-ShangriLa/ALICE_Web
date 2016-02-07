@@ -52,7 +52,12 @@ EOS
   @db = Sequel.mysql2('anime_admin_development', :host=>'localhost', :user=>'root', :password=>'', :port=>'3306')
 
   ranking = @db[:pixiv_tag_status].reverse(:total).select_all
-  daily_ranking = @db[:pixiv_tag_daily].where(:get_date => Date.today).select_hash(:bases_id, [:total, :search_word])
+
+  diff_target = Date.today
+  #０〜１時の間はdailyテーブルができてないので昨日の比較をする
+  diff_target = Data.today - 1 if Time.now.hour == 0
+
+  daily_ranking = @db[:pixiv_tag_daily].where(:get_date => diff_target).select_hash(:bases_id, [:total, :search_word])
 
   #http://www.pixiv.net/search.php?s_mode=s_tag&word=%E6%9A%97%E6%AE%BA%E6%95%99%E5%AE%A4(%E7%AC%AC2%E6%9C%9F)%20or%20%E6%9A%97%E6%AE%BA%E6%95%99%E5%AE%A4&abt=y
   ranking.each_with_index do |rank, i|
