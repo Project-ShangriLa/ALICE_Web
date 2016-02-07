@@ -55,7 +55,7 @@ EOS
 
   diff_target = Date.today
   #０〜１時の間はdailyテーブルができてないので昨日の比較をする
-  diff_target = Data.today - 1 if Time.now.hour == 0
+  diff_target = Date.today - 1 if Time.now.hour == 0
 
   daily_ranking = @db[:pixiv_tag_daily].where(:get_date => diff_target).select_hash(:bases_id, [:total, :search_word])
 
