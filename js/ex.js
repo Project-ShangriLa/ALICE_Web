@@ -1,5 +1,14 @@
 $(function() {
 
+
+    var now = new Date() ;
+    now.setDate(now.getDate()  - 1);
+    var nowMonth = now.getMonth() + 1;
+
+    $("#_year").val(now.getFullYear());
+    $("#_month").val(nowMonth);
+    $("#_day").val(now.getDate());
+
     function create_url(type) {
 
         path = ""
@@ -46,6 +55,10 @@ $(function() {
 
     }
 
+    $('#all_check').click('change', function() {
+       // console.log( $('input[class="target"]'));
+        $('input[class="target"]').prop('checked', true);
+    });
 
     $("#graph_button").click(function () {
 
@@ -70,7 +83,7 @@ $(function() {
             $('#container').highcharts({
                 chart: {
                     type: 'spline',
-                    zoomType: 'x'
+                    zoomType: 'x.y'
                 },
                 title: {
                     text: 'pixiv 投稿増加数の日付別推移'

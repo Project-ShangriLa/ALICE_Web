@@ -85,7 +85,7 @@ EOS
 
 body += '<form action="" method="post">'
 master.each do |m|
-  body += "<div><input type=\"checkbox\" class=\"target\" id=\"#{m['id']}\" value=\"#{m['id']}\">#{m['title']}</div>"
+  body += "<div><input type=\"checkbox\" name=\"checktite\" class=\"target\" id=\"#{m['id']}\" value=\"#{m['id']}\">#{m['title']}</div>"
 end
 body += '</form>'
 
@@ -97,9 +97,9 @@ body += <<"EOS"
         <input type="number" name="day" value="08" size="2" min="1" max="31"> 日
 </div>
  <div> 終了日
-        <input type="number" name="_year" value="2016" size="4" min="2016" max="2017"> 年
-        <input type="number" name="_month" value="02" size="2" min="1" max="12"> 月
-        <input type="number" name="_day" value="09" size="2" min="1" max="31"> 日
+        <input type="number" name="_year"  id="_year" value="2016" size="4" min="2016" max="2017"> 年
+        <input type="number" name="_month"  id="_month"  value="02" size="2" min="1" max="12"> 月
+        <input type="number" name="_day" id="_day" value="09" size="2" min="1" max="31"> 日
 </div>
 <div>
         <button id="csv_button">CSVリンク生成</button><a href="" id="csv_link"></a>
@@ -108,10 +108,15 @@ body += <<"EOS"
         <button id="graph_button">グラフ生成</button>
         <p>2016年2月8日ぐらいからのデータがあります。</p>
     </div>
+
+<div>
+<button id="all_check">全選択</button>
+</div>
 </div>
 
+
 </div>
-<div id="container" style="min-width: 800px; height: 600px; margin: 0 auto; float:left;"></div>
+<div id="container" style="min-width: 1000px; height: 600px; margin: 0 auto; float:left;"></div>
 
 EOS
 
