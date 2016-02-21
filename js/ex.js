@@ -69,7 +69,8 @@ $(function() {
         function draw(series) {
             $('#container').highcharts({
                 chart: {
-                    type: 'spline'
+                    type: 'spline',
+                    zoomType: 'x'
                 },
                 title: {
                     text: 'pixiv 投稿増加数の日付別推移'
