@@ -60,7 +60,10 @@ head = <<"EOS"
 
          $("#csv_link").text("ダウンロード!");
          //data_csv?ids=290,291&start=20160208&end=20160220
-         var ids = "";
+
+         var chk_id_list = $('[class="target"]:checked').map(function(){return $(this).val();}).get();
+         var ids = chk_id_list.join(',');
+
          $("#csv_link").attr("href", "/data_csv?ids=" + ids + "&" + "start=" + start + "&end=" + end );
     });
  });
@@ -79,10 +82,9 @@ EOS
 
 body += '<form action="" method="post">'
 master.each do |m|
-  body += "<div><input type=\"checkbox\" id=\"#{m['id']}\">#{m['title']}</div>"
+  body += "<div><input type=\"checkbox\" class=\"target\" id=\"#{m['id']}\" value=\"#{m['id']}\">#{m['title']}</div>"
 end
 body += '</form>'
-
 
 body += <<"EOS"
     <div>
