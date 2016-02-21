@@ -49,7 +49,7 @@ $(function() {
 
     $("#graph_button").click(function () {
 
-        url = create_url("json");
+        var url =  create_url("json");
         console.log(url);
 
         $.ajax({
@@ -57,14 +57,12 @@ $(function() {
             url: url,
             dataType: 'json',
             success: function(json) {
-                /*
-                        draw([{
-                            name: tagetAccountList[0],
-                            data: gdataList[0]
-                        }, {
-                            name: tagetAccountList[1],
-                            data: gdataList[1]
-                        }, ]);*/
+                        draw(json);
+            },
+            error: function(XMLHttpRequest, textStatus, errorThrown) {
+                console.log("ERROR");
+                console.log(textStatus);
+                console.log(errorThrown);
             }
         });
 
