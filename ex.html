@@ -24,7 +24,9 @@
 <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" integrity="sha256-7s5uDGW3AHqw6xtJmNNtr+OBRJUlgkNJEo78P4b0yRw= sha512-nNo+yCHEyn0smMxSswnf/OnX6/KwJuZTlNZBjauKhTK0c+zT+q5JOCx0UFhXQ6rJR9jg6Es8gPuD2uZcYDLqSw==" crossorigin="anonymous">
 <script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
 <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha256-KXn5puMvxCw+dAYznun+drMdG1IFl3agK0p/pqT9KAo= sha512-2e8qq0ETcfWRI4HJBzQiA3UoyFk6tbNyG+qSaIBZLyW9Xf3sWZHN/lxe9fTh1U45DpPf07yj94KsUHHWe4Yk1A==" crossorigin="anonymous"></script>
-
+<script src="http://code.highcharts.com/highcharts.js"></script>
+<script src="http://code.highcharts.com/modules/exporting.js"></script>
+<script src="./js/ex.js"></script>
 <script>
     $(function(){
         $("#csv_button").click(function () {
@@ -63,6 +65,7 @@
 
 </head>
 <body>
+<div style="float:left;">
 <form action="" method="post"><div><input type="checkbox" class="target" id="281" value="281">機動戦士ガンダム サンダーボルト</div><div><input type="checkbox" class="target" id="282" value="282">プリンス・オブ・ストライド オルタナティブ</div><div><input type="checkbox" class="target" id="283" value="283">無彩限のファントム・ワールド</div><div><input type="checkbox" class="target" id="284" value="284">ハルチカ〜ハルタとチカは青春する〜</div><div><input type="checkbox" class="target" id="285" value="285">ノルン＋ノネット</div><div><input type="checkbox" class="target" id="286" value="286">アクティヴレイド －機動強襲室第八係－</div><div><input type="checkbox" class="target" id="287" value="287">少女たちは荒野を目指す</div><div><input type="checkbox" class="target" id="288" value="288">僕だけがいない街</div><div><input type="checkbox" class="target" id="289" value="289">おじさんとマシュマロ</div><div><input type="checkbox" class="target" id="290" value="290">ファンタシースターオンライン2 ジ アニメーション</div><div><input type="checkbox" class="target" id="291" value="291">だがしかし</div><div><input type="checkbox" class="target" id="292" value="292">暗殺教室(第2期)</div><div><input type="checkbox" class="target" id="293" value="293">ディバインゲート</div><div><input type="checkbox" class="target" id="294" value="294">おしえて！ギャル子ちゃん</div><div><input type="checkbox" class="target" id="295" value="295">石膏ボーイズ</div><div><input type="checkbox" class="target" id="296" value="296">霊剣山 星屑たちの宴</div><div><input type="checkbox" class="target" id="297" value="297">GATE 自衛隊 彼の地にて、斯く戦えり(2期)</div><div><input type="checkbox" class="target" id="298" value="298">昭和元禄落語心中</div><div><input type="checkbox" class="target" id="299" value="299">紅殻のパンドラ</div><div><input type="checkbox" class="target" id="300" value="300">ブブキ・ブランキ</div><div><input type="checkbox" class="target" id="301" value="301">ラクエンロジック</div><div><input type="checkbox" class="target" id="302" value="302">デュラララ!!×2 結</div><div><input type="checkbox" class="target" id="303" value="303">ナースウィッチ小麦ちゃんR</div><div><input type="checkbox" class="target" id="304" value="304">虹色デイズ</div><div><input type="checkbox" class="target" id="305" value="305">大家さんは思春期！</div><div><input type="checkbox" class="target" id="306" value="306">Dimension W</div><div><input type="checkbox" class="target" id="307" value="307">灰と幻想のグリムガル</div><div><input type="checkbox" class="target" id="308" value="308">シュヴァルツェスマーケン</div><div><input type="checkbox" class="target" id="309" value="309">最弱無敗の神装機竜(バハムート)</div><div><input type="checkbox" class="target" id="310" value="310">赤髪の白雪姫(第2期)</div><div><input type="checkbox" class="target" id="311" value="311">てーきゅう(第7期)</div><div><input type="checkbox" class="target" id="312" value="312">魔法少女なんてもういいですから。</div><div><input type="checkbox" class="target" id="313" value="313">蒼の彼方のフォーリズム</div><div><input type="checkbox" class="target" id="314" value="314">この素晴らしい世界に祝福を！</div><div><input type="checkbox" class="target" id="315" value="315">亜人</div><div><input type="checkbox" class="target" id="316" value="316">FAIRY TAIL ZERO</div><div><input type="checkbox" class="target" id="317" value="317">ももくり</div><div><input type="checkbox" class="target" id="318" value="318">この男子、魔法がお仕事です。</div><div><input type="checkbox" class="target" id="319" value="319">SUSHI POLICE</div><div><input type="checkbox" class="target" id="320" value="320">血液型くん！4</div></form>    <div>
  <div> 開始日
         <input type="number" name="year" value="2016" size="4" min="2016" max="2017"> 年
@@ -77,9 +80,14 @@
 <div>
         <button id="csv_button">CSVリンク生成</button><a href="" id="csv_link"></a>
 </div>
+<div>
         <button id="graph_button">グラフ生成</button>
         <p>2016年2月8日ぐらいからのデータがあります。</p>
     </div>
+</div>
+
+</div>
+<div id="container" style="min-width: 800px; height: 600px; margin: 0 auto; float:left;"></div>
 
 </body>
 </html>
