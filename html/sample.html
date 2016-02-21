@@ -36,32 +36,23 @@
 <h1>pixiv 今期アニメ タグ件数ランキング</h1>
 <div>
 制作:
-  <a href="#" onclick="javascript:window.open('http://akibalab.info/');">
-    <img src="https://objectstore-r1nd1001.cnode.jp/v1/93a6500c0a1e4c68b976e5e46527145c/data/aisl_logo.png">
-  </a>
-</div>
-<p class="text-info lead">データ更新日時 2016-02-06 20時42分17秒</p>
-<table class="table table-striped alt-table-responsive">
-<thead>
-<tr>
-<th class="col-md-1">順位</th>
-<th class="col-md-2">画像</th>
-<th class="col-md-2">タグ検索結果数</th>
-<th class="col-md-2">今日の増加数</th>
-<th class="col-md-5">検索ワード</th>
-</tr>
-</thead>
-<tbody>
+  <a href="#" onclick="javascri
+[1mFrom:[0m /Users/Siori/code/git_akb428/ALICE_Web/gen_pixiv_ranking.rb @ line 56 Object#body:
 
-    <tr>
-     <th class="col-md-1"><p class="lead">1</p></th>
-     <td class="col-md-2"><img data-layzr="./image/twitter_icon_302.png"></td>
-     <td class="col-md-2"><p class="lead">80989</p></td>
-     <td class="col-md-2"><p class="lead">検索ワード変更によりデータなし</p></td>
-     <td class="col-md-5"><p class="lead"><a href="#" onclick="javascript:window.open('http://www.pixiv.net/search.php?s_mode=s_tag&word=(%E3%83%87%E3%83%A5%E3%83%A9%E3%83%A9%E3%83%A9!!%C3%972%20%E7%B5%90)%20or%20%E3%83%87%E3%83%A5%E3%83%A9%E3%83%A9%E3%83%A9!!%C3%972%20or%20%E3%83%87%E3%83%A5%E3%83%A9%E3%83%A9%E3%83%A9');">(デュラララ!!×2 結) or デュラララ!!×2 or デュラララ</a></p></td>
-    </tr>
-    <tr>
-     <th class="col-md-1"><p class="lead">2</p></th>
+    [1;34m51[0m:   @db = [1;34;4mSequel[0m.mysql2([31m[1;31m'[0m[31manime_admin_development[1;31m'[0m[31m[0m, [33m:host[0m=>[31m[1;31m'[0m[31mlocalhost[1;31m'[0m[31m[0m, [33m:user[0m=>[31m[1;31m'[0m[31mroot[1;31m'[0m[31m[0m, [33m:password[0m=>[31m[1;31m'[0m[31m[1;31m'[0m[31m[0m, [33m:port[0m=>[31m[1;31m'[0m[31m3306[1;31m'[0m[31m[0m)
+    [1;34m52[0m: 
+    [1;34m53[0m:   ranking = @db[[33m:pixiv_tag_status[0m].reverse([33m:total[0m).select_all
+    [1;34m54[0m:   daily_ranking = @db[[33m:pixiv_tag_daily[0m].select_hash([33m:bases_id[0m, [[33m:total[0m, [33m:search_word[0m])
+    [1;34m55[0m: 
+ => [1;34m56[0m:   binding.pry
+    [1;34m57[0m:   [1;34m#http://www.pixiv.net/search.php?s_mode=s_tag&word=%E6%9A%97%E6%AE%BA%E6%95%99%E5%AE%A4(%E7%AC%AC2%E6%9C%9F)%20or%20%E6%9A%97%E6%AE%BA%E6%95%99%E5%AE%A4&abt=y[0m
+    [1;34m58[0m:   ranking.each_with_index [32mdo[0m |rank, i|
+    [1;34m59[0m: 
+    [1;34m60[0m:     link = [1;34;4mURI[0m.escape([31m[1;31m'[0m[31mhttp://www.pixiv.net/search.php?s_mode=s_tag&word=[1;31m'[0m[31m[0m + rank[[33m:search_word[0m])
+    [1;34m61[0m: 
+
+[0G
+d-1"><p class="lead">2</p></th>
      <td class="col-md-2"><img data-layzr="./image/twitter_icon_297.jpeg"></td>
      <td class="col-md-2"><p class="lead">20577</p></td>
      <td class="col-md-2"><p class="lead">検索ワード変更によりデータなし</p></td>

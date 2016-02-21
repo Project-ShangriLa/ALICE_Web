@@ -1,0 +1,82 @@
+<html>
+<meta charset="utf-8">
+<meta name="format-detection" content="telephone=no">
+
+<meta content="pixiv 今期アニメ タグ件数ランキング" name="title">
+<meta content="pixiv 今期アニメ タグ件数ランキングです。毎日数回更新。制作：秋葉原IT戦略研究所" name="description">
+<meta content='pixivランキング,アニメランキング,pixiv タグランキング,アニメ' name='keywords'>
+
+<meta property="og:type" content="website"/>
+<meta property="og:title" content="pixiv 今期アニメ タグ件数ランキング"/>
+<meta property="og:description" content="pixiv 今期アニメ タグ件数ランキングです。毎日数回更新。毎日数回更新。制作：秋葉原IT戦略研究所" />
+<meta property="og:image" content="http://pix.akiba-net.com/og_image.png" />
+<meta property="og:url" content="http://pix.akiba-net.com/index.html" />
+<meta property="og:site_name" content="pixiv 今期アニメ タグ件数ランキング"/>
+
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="@anime_follower" />
+<meta name="twitter:title" content="pixiv 今期アニメ タグ件数ランキング" />
+<meta name="twitter:description" content="pixiv 今期アニメ タグ件数ランキングです。毎日数回更新。毎日数回更新。制作：秋葉原IT戦略研究所" />
+<meta name="twitter:image" content="http://pix.akiba-net.com/og_image.png" />
+
+<head>
+<title>pixiv 今期アニメ タグ件数ランキング</title>
+<link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" integrity="sha256-7s5uDGW3AHqw6xtJmNNtr+OBRJUlgkNJEo78P4b0yRw= sha512-nNo+yCHEyn0smMxSswnf/OnX6/KwJuZTlNZBjauKhTK0c+zT+q5JOCx0UFhXQ6rJR9jg6Es8gPuD2uZcYDLqSw==" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha256-KXn5puMvxCw+dAYznun+drMdG1IFl3agK0p/pqT9KAo= sha512-2e8qq0ETcfWRI4HJBzQiA3UoyFk6tbNyG+qSaIBZLyW9Xf3sWZHN/lxe9fTh1U45DpPf07yj94KsUHHWe4Yk1A==" crossorigin="anonymous"></script>
+
+<script>
+    $(function(){
+        $("#csv_button").click(function () {
+
+            var year = $('[name=year]').val();
+            var month = $('[name=month]').val();
+            var day = $('[name=day]').val();
+
+            month = ("0"+month).slice(-2);
+            day = ("0"+day).slice(-2);
+
+            var start = year + month + day
+
+            var _year = $('[name=_year]').val();
+            var _month = $('[name=_month]').val();
+            var _day = $('[name=_day]').val();
+
+            _month = ("0"+_month).slice(-2);
+            _day = ("0"+_day).slice(-2);
+
+            var end = _year + _month + _day;
+
+            console.log(start);
+            console.log(end);
+
+         $("#csv_link").text("ダウンロード!");
+         //data_csv?ids=290,291&start=20160208&end=20160220
+         var ids = "";
+         $("#csv_link").attr("href", "/data_csv?ids=" + ids + "&" + "start=" + start + "&end=" + end );
+    });
+ });
+</script>
+
+</head>
+<body>
+<form action="" method="post"><div><input type="checkbox" id="281">機動戦士ガンダム サンダーボルト</div><div><input type="checkbox" id="282">プリンス・オブ・ストライド オルタナティブ</div><div><input type="checkbox" id="283">無彩限のファントム・ワールド</div><div><input type="checkbox" id="284">ハルチカ〜ハルタとチカは青春する〜</div><div><input type="checkbox" id="285">ノルン＋ノネット</div><div><input type="checkbox" id="286">アクティヴレイド －機動強襲室第八係－</div><div><input type="checkbox" id="287">少女たちは荒野を目指す</div><div><input type="checkbox" id="288">僕だけがいない街</div><div><input type="checkbox" id="289">おじさんとマシュマロ</div><div><input type="checkbox" id="290">ファンタシースターオンライン2 ジ アニメーション</div><div><input type="checkbox" id="291">だがしかし</div><div><input type="checkbox" id="292">暗殺教室(第2期)</div><div><input type="checkbox" id="293">ディバインゲート</div><div><input type="checkbox" id="294">おしえて！ギャル子ちゃん</div><div><input type="checkbox" id="295">石膏ボーイズ</div><div><input type="checkbox" id="296">霊剣山 星屑たちの宴</div><div><input type="checkbox" id="297">GATE 自衛隊 彼の地にて、斯く戦えり(2期)</div><div><input type="checkbox" id="298">昭和元禄落語心中</div><div><input type="checkbox" id="299">紅殻のパンドラ</div><div><input type="checkbox" id="300">ブブキ・ブランキ</div><div><input type="checkbox" id="301">ラクエンロジック</div><div><input type="checkbox" id="302">デュラララ!!×2 結</div><div><input type="checkbox" id="303">ナースウィッチ小麦ちゃんR</div><div><input type="checkbox" id="304">虹色デイズ</div><div><input type="checkbox" id="305">大家さんは思春期！</div><div><input type="checkbox" id="306">Dimension W</div><div><input type="checkbox" id="307">灰と幻想のグリムガル</div><div><input type="checkbox" id="308">シュヴァルツェスマーケン</div><div><input type="checkbox" id="309">最弱無敗の神装機竜(バハムート)</div><div><input type="checkbox" id="310">赤髪の白雪姫(第2期)</div><div><input type="checkbox" id="311">てーきゅう(第7期)</div><div><input type="checkbox" id="312">魔法少女なんてもういいですから。</div><div><input type="checkbox" id="313">蒼の彼方のフォーリズム</div><div><input type="checkbox" id="314">この素晴らしい世界に祝福を！</div><div><input type="checkbox" id="315">亜人</div><div><input type="checkbox" id="316">FAIRY TAIL ZERO</div><div><input type="checkbox" id="317">ももくり</div><div><input type="checkbox" id="318">この男子、魔法がお仕事です。</div><div><input type="checkbox" id="319">SUSHI POLICE</div><div><input type="checkbox" id="320">血液型くん！4</div></form>    <div>
+ <div> 開始日
+        <input type="number" name="year" value="2016" size="4" min="2016" max="2017"> 年
+        <input type="number" name="month" value="02" size="2" min="1" max="12"> 月
+        <input type="number" name="day" value="08" size="2" min="1" max="31"> 日
+</div>
+ <div> 終了日
+        <input type="number" name="_year" value="2016" size="4" min="2016" max="2017"> 年
+        <input type="number" name="_month" value="02" size="2" min="1" max="12"> 月
+        <input type="number" name="_day" value="09" size="2" min="1" max="31"> 日
+</div>
+<div>
+        <button id="csv_button">CSVリンク生成</button><a href="" id="csv_link"></a>
+</div>
+        <button id="graph_button">グラフ生成</button>
+        <p>2016年2月8日ぐらいからのデータがあります。</p>
+    </div>
+
+</body>
+</html>
