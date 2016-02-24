@@ -119,8 +119,8 @@ $(function() {
                     }
                 },
                 exporting: {
-                    width: 1200,
-                    height: 800
+                    width: 2000,
+                    filename: now.toString()
                 },
                 series: series
             });
