@@ -118,7 +118,10 @@ $(function() {
                         }
                     }
                 },
-
+                exporting: {
+                    width: 1200,
+                    height: 800
+                },
                 series: series
             });
         } //draw
