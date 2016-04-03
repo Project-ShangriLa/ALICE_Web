@@ -21,5 +21,5 @@ bundle exe ruby gen_pixiv_ranking.rb -o ranking.html
 bundle exe ruby gen_pixiv_ranking.rb -o /usr/share/nginx/html/pix/index2.html
 
 bundle exe ruby gen_pixiv_ranking.rb -o ranking2016spring.html -y 2016 -c 1
-bundle exe ruby gen_pixiv_ranking.rb -o -y 2016 -c 1 /usr/share/nginx/html/pix/index3.html
+bundle exe ruby gen_pixiv_ranking.rb -y 2016 -c 1 -o /usr/share/nginx/html/pix/index3.html
 ```
