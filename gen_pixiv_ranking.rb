@@ -4,6 +4,7 @@ require 'optparse'
 require 'uri'
 require 'pry'
 require 'date'
+require 'shangrila'
 
 amazon_widget = <<EOS
   <script type="text/javascript"><!--
@@ -19,7 +20,10 @@ rakuten_widget = <<EOS
 <!-- Rakuten Widget FROM HERE --><script type="text/javascript">rakuten_design="slide";rakuten_affiliateId="138ddf20.b83089f9.138ddf21.36568b5e";rakuten_items="ranking";rakuten_genreId="553575";rakuten_size="468x160";rakuten_target="_blank";rakuten_theme="gray";rakuten_border="off";rakuten_auto_mode="off";rakuten_genre_title="off";rakuten_recommend="off";</script><script type="text/javascript" src="http://xml.affiliate.rakuten.co.jp/widget/js/rakuten_widget.js"></script><!-- Rakuten Widget TO HERE -->
 EOS
 
-def body()
+def body(year, cours)
+
+  master = Shangrila::Sora.new().get_master_data(year, cours)
+  master_ids = master.map{|m| m['id']}
 
   table_start = <<EOS
 <table class="table table-striped alt-table-responsive">
@@ -51,13 +55,13 @@ EOS
 
   @db = Sequel.mysql2('anime_admin_development', :host=>'localhost', :user=>'root', :password=>'', :port=>'3306')
 
-  ranking = @db[:pixiv_tag_status].reverse(:total).select_all
+  ranking = @db[:pixiv_tag_status].where(:base_id => master_ids).reverse(:total).select_all
 
   diff_target = Date.today
   #０〜１時の間はdailyテーブルができてないので昨日の比較をする
   diff_target = Date.today - 1 if Time.now.hour == 0
 
-  daily_ranking = @db[:pixiv_tag_daily].where(:get_date => diff_target).select_hash(:bases_id, [:total, :search_word])
+  daily_ranking = @db[:pixiv_tag_daily].where(:base_id => master_ids).where(:get_date => diff_target).select_hash(:bases_id, [:total, :search_word])
 
   #http://www.pixiv.net/search.php?s_mode=s_tag&word=%E6%9A%97%E6%AE%BA%E6%95%99%E5%AE%A4(%E7%AC%AC2%E6%9C%9F)%20or%20%E6%9A%97%E6%AE%BA%E6%95%99%E5%AE%A4&abt=y
   ranking.each_with_index do |rank, i|
@@ -147,19 +151,26 @@ EOS
 
 
 output_filename = nil
+
+year = 2016
+cours = 1
+
 opt = OptionParser.new
 Version = '1.0.0'
 opt.on('-o OUTPUT FILENAME', 'output filename') {|v| output_filename = v }
+opt.on('-y YEAR', 'year') {|v| year = v }
+opt.on('-c COURS', 'cours') {|v| cours = v }
+
 opt.parse!(ARGV)
 
 if output_filename.nil?
   puts head
-  puts body
+  puts body(year, cours)
   puts footer
 else
   File.open(output_filename, 'w') do |file|
     file.puts head
-    file.puts body
+    file.puts body(year, cours)
     file.puts footer
   end
 end

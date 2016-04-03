@@ -3,6 +3,14 @@ require 'shangrila'
 
 master = Shangrila::Sora.new().get_master_data(ARGV[0], ARGV[1])
 
+start_date =  Time.now
+
+start_date = Date.strptime(ARGV[2], '%Y%m%d') if ARGV.length == 3
+
+start_year = start_date.year
+start_month = start_date.month
+start_day = start_date.day
+
 @master_map = {}
 
 head = <<"EOS"
@@ -92,9 +100,9 @@ body += '</form>'
 body += <<"EOS"
     <div>
  <div> 開始日
-        <input type="number" name="year" value="2016" size="4" min="2016" max="2017"> 年
-        <input type="number" name="month" value="02" size="2" min="1" max="12"> 月
-        <input type="number" name="day" value="08" size="2" min="1" max="31"> 日
+        <input type="number" name="year" value="#{start_year}" size="4" min="2016" max="2017"> 年
+        <input type="number" name="month" value="#{start_month}" size="2" min="1" max="12"> 月
+        <input type="number" name="day" value="#{start_day}" size="2" min="1" max="31"> 日
 </div>
  <div> 終了日
         <input type="number" name="_year"  id="_year" value="2016" size="4" min="2016" max="2017"> 年
@@ -106,7 +114,7 @@ body += <<"EOS"
 </div>
 <div>
         <button id="graph_button">グラフ生成</button>
-        <p>2016年2月8日ぐらいからのデータがあります。</p>
+        <p>#{start_year}年#{start_month}月#{start_day}日ぐらいからのデータがあります。</p>
     </div>
 
 <div>
