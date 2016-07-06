@@ -1,0 +1,98 @@
+<html>
+<meta charset="utf-8">
+<meta name="format-detection" content="telephone=no">
+
+<meta content="pixiv 今期アニメ タグ件数ランキング" name="title">
+<meta content="pixiv 今期アニメ タグ件数ランキングです。毎日数回更新。制作：秋葉原IT戦略研究所" name="description">
+<meta content='pixivランキング,アニメランキング,pixiv タグランキング,アニメ' name='keywords'>
+
+<meta property="og:type" content="website"/>
+<meta property="og:title" content="pixiv 今期アニメ タグ件数ランキング"/>
+<meta property="og:description" content="pixiv 今期アニメ タグ件数ランキングです。毎日数回更新。毎日数回更新。制作：秋葉原IT戦略研究所" />
+<meta property="og:image" content="http://pix.akiba-net.com/og_image.png" />
+<meta property="og:url" content="http://pix.akiba-net.com/index.html" />
+<meta property="og:site_name" content="pixiv 今期アニメ タグ件数ランキング"/>
+
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="@anime_follower" />
+<meta name="twitter:title" content="pixiv 今期アニメ タグ件数ランキング" />
+<meta name="twitter:description" content="pixiv 今期アニメ タグ件数ランキングです。毎日数回更新。毎日数回更新。制作：秋葉原IT戦略研究所" />
+<meta name="twitter:image" content="http://pix.akiba-net.com/og_image.png" />
+
+<head>
+<title>pixiv 今期アニメ タグ件数ランキング</title>
+<link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" integrity="sha256-7s5uDGW3AHqw6xtJmNNtr+OBRJUlgkNJEo78P4b0yRw= sha512-nNo+yCHEyn0smMxSswnf/OnX6/KwJuZTlNZBjauKhTK0c+zT+q5JOCx0UFhXQ6rJR9jg6Es8gPuD2uZcYDLqSw==" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha256-KXn5puMvxCw+dAYznun+drMdG1IFl3agK0p/pqT9KAo= sha512-2e8qq0ETcfWRI4HJBzQiA3UoyFk6tbNyG+qSaIBZLyW9Xf3sWZHN/lxe9fTh1U45DpPf07yj94KsUHHWe4Yk1A==" crossorigin="anonymous"></script>
+<script src="http://code.highcharts.com/highcharts.js"></script>
+<script src="http://code.highcharts.com/modules/exporting.js"></script>
+<script src="./js/ex.js"></script>
+<script>
+    $(function(){
+        $("#csv_button").click(function () {
+
+            var year = $('[name=year]').val();
+            var month = $('[name=month]').val();
+            var day = $('[name=day]').val();
+
+            month = ("0"+month).slice(-2);
+            day = ("0"+day).slice(-2);
+
+            var start = year + month + day
+
+            var _year = $('[name=_year]').val();
+            var _month = $('[name=_month]').val();
+            var _day = $('[name=_day]').val();
+
+            _month = ("0"+_month).slice(-2);
+            _day = ("0"+_day).slice(-2);
+
+            var end = _year + _month + _day;
+
+            console.log(start);
+            console.log(end);
+
+         $("#csv_link").text("ダウンロード!");
+         //data_csv?ids=290,291&start=20160208&end=20160220
+
+         var chk_id_list = $('[class="target"]:checked').map(function(){return $(this).val();}).get();
+         var ids = chk_id_list.join(',');
+
+         $("#csv_link").attr("href", "/data_csv?ids=" + ids + "&" + "start=" + start + "&end=" + end );
+    });
+ });
+</script>
+
+</head>
+<body>
+<div style="float:left;">
+<form action="" method="post"><div><input type="checkbox" name="checktite" class="target" id="365" value="365">ReLIFE</div><div><input type="checkbox" name="checktite" class="target" id="366" value="366">不機嫌なモノノケ庵</div><div><input type="checkbox" name="checktite" class="target" id="367" value="367">ぐらP＆ろで夫</div><div><input type="checkbox" name="checktite" class="target" id="368" value="368">ベルセルク</div><div><input type="checkbox" name="checktite" class="target" id="369" value="369">Thunderbolt Fantasy 東離劍遊紀</div><div><input type="checkbox" name="checktite" class="target" id="370" value="370">一人之下 the outcast</div><div><input type="checkbox" name="checktite" class="target" id="371" value="371">食戟のソーマ 弐ノ皿 </div><div><input type="checkbox" name="checktite" class="target" id="372" value="372">ラブライブ！サンシャイン!!</div><div><input type="checkbox" name="checktite" class="target" id="373" value="373">初恋モンスター</div><div><input type="checkbox" name="checktite" class="target" id="374" value="374">B-PROJECT～鼓動＊アンビシャス～</div><div><input type="checkbox" name="checktite" class="target" id="375" value="375">DAYS</div><div><input type="checkbox" name="checktite" class="target" id="376" value="376">Rewrite</div><div><input type="checkbox" name="checktite" class="target" id="377" value="377">アルスラーン戦記 風塵乱舞</div><div><input type="checkbox" name="checktite" class="target" id="378" value="378">テイルズ オブ ゼスティリア ザ クロス</div><div><input type="checkbox" name="checktite" class="target" id="379" value="379">orange</div><div><input type="checkbox" name="checktite" class="target" id="380" value="380">斉木楠雄のΨ難</div><div><input type="checkbox" name="checktite" class="target" id="381" value="381">ばなにゃ</div><div><input type="checkbox" name="checktite" class="target" id="382" value="382">NEW GAME!</div><div><input type="checkbox" name="checktite" class="target" id="383" value="383">SHOW BY ROCK!!(ショウバイロック!!) しょ～と!!</div><div><input type="checkbox" name="checktite" class="target" id="384" value="384">甘々と稲妻</div><div><input type="checkbox" name="checktite" class="target" id="385" value="385">D.Gray-man HALLOW</div><div><input type="checkbox" name="checktite" class="target" id="386" value="386">タブー・タトゥー</div><div><input type="checkbox" name="checktite" class="target" id="387" value="387">腐男子高校生活</div><div><input type="checkbox" name="checktite" class="target" id="388" value="388">SERVAMP‐サーヴァンプ‐</div><div><input type="checkbox" name="checktite" class="target" id="389" value="389">チア男子!!</div><div><input type="checkbox" name="checktite" class="target" id="390" value="390">スカーレッドライダーゼクス</div><div><input type="checkbox" name="checktite" class="target" id="391" value="391">魔装学園HxH(ハイブリッドハート)</div><div><input type="checkbox" name="checktite" class="target" id="392" value="392">Fate/kaleid liner プリズマイリヤ ドライ!!</div><div><input type="checkbox" name="checktite" class="target" id="393" value="393">ツキウタ。 THE ANIMATION</div><div><input type="checkbox" name="checktite" class="target" id="394" value="394">OZMAFIA!!</div><div><input type="checkbox" name="checktite" class="target" id="395" value="395">planetarian～ちいさなほしのゆめ～</div><div><input type="checkbox" name="checktite" class="target" id="396" value="396">レガリア The Three Sacred Stars</div><div><input type="checkbox" name="checktite" class="target" id="397" value="397">はんだくん</div><div><input type="checkbox" name="checktite" class="target" id="398" value="398">この美術部には問題がある！</div><div><input type="checkbox" name="checktite" class="target" id="399" value="399">美男高校地球防衛部LOVE! LOVE!</div><div><input type="checkbox" name="checktite" class="target" id="400" value="400">あまんちゅ</div><div><input type="checkbox" name="checktite" class="target" id="401" value="401">ねじ巻き精霊戦記 天鏡のアルデラミン</div><div><input type="checkbox" name="checktite" class="target" id="402" value="402">91Days</div><div><input type="checkbox" name="checktite" class="target" id="403" value="403">クオリディア・コード</div><div><input type="checkbox" name="checktite" class="target" id="404" value="404">アンジュ・ヴィエルジュ</div><div><input type="checkbox" name="checktite" class="target" id="405" value="405">アクティヴレイド -機動強襲室第八係- 2nd</div><div><input type="checkbox" name="checktite" class="target" id="406" value="406">ダンガンロンパ3 The End of 希望ヶ峰学園</div><div><input type="checkbox" name="checktite" class="target" id="407" value="407">モブサイコ100</div><div><input type="checkbox" name="checktite" class="target" id="408" value="408">バッテリー</div></form>    <div>
+ <div> 開始日
+        <input type="number" name="year" value="2016" size="4" min="2016" max="2017"> 年
+        <input type="number" name="month" value="7" size="2" min="1" max="12"> 月
+        <input type="number" name="day" value="7" size="2" min="1" max="31"> 日
+</div>
+ <div> 終了日
+        <input type="number" name="_year"  id="_year" value="2016" size="4" min="2016" max="2017"> 年
+        <input type="number" name="_month"  id="_month"  value="02" size="2" min="1" max="12"> 月
+        <input type="number" name="_day" id="_day" value="09" size="2" min="1" max="31"> 日
+</div>
+<div>
+        <button id="csv_button">CSVリンク生成</button><a href="" id="csv_link"></a>
+</div>
+<div>
+        <button id="graph_button">グラフ生成</button>
+        <p>2016年7月7日ぐらいからのデータがあります。</p>
+    </div>
+
+<div>
+<button id="all_check">全選択</button>
+</div>
+</div>
+
+
+</div>
+<div id="container" style="min-width: 1000px; height: 600px; margin: 0 auto; float:left;"></div>
+
+</body>
+</html>
