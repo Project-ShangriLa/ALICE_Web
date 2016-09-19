@@ -11,13 +11,15 @@ end
 
 def connect_twitter(account_list)
   require './twitter.rb'
+  puts 'id,twitter_profile_image_url'
  @tw.users(account_list).each do |user|
-   image_url = user.profile_image_url.to_s.gsub(/normal/,'bigger')
+   image_url = user.profile_image_url.to_s.gsub(/_normal/,'')
    ext = File.extname(image_url)
    filename = './html/image/twitter_icon_' + @master_map[user.screen_name].to_s + ext
 
-   puts image_url
-   puts filename
+   puts @master_map[user.screen_name].to_s + ',' + image_url
+   #puts image_url
+   #puts filename
    save_image(image_url, filename)
 
  end
