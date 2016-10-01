@@ -144,7 +144,7 @@ head = <<"EOS"
 EOS
 
 footer = <<"EOS"
-#{amazon_widget2}
+#{rakuten_widget}
 </body>
 </html>
 EOS
